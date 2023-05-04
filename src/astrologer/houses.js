@@ -41,13 +41,14 @@ const houses = (date, position, houseSystem = 'P') => {
 
   const axes = {
     asc: houseCollection[0],
-    dc: houseCollection[6],
+    // dc: houseCollection[6],
     mc: houseCollection[9],
-    ic: houseCollection[3],
+    // ic: houseCollection[3],
   }
 
   return {
     axes,
+    houses: houseCollection,
   }
 }
 

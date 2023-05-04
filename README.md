@@ -98,3 +98,28 @@ The values from each house system is extracted from sweph source code
 | W | equal/ whole sign |
 | X | axial rotation system/Meridian houses |
 | Y | APC houses |
+
+## Calculation Instructions – for assessing the Balance of Elements
+
+### Give 2 points to each of the following elements:
+
+- element of Sun sign
+- element of Moon sign
+Give 1 point to each of the following elements:
+
+- element of Rising Sign (the Ascendant)
+- element of midheaven sign (the M.C.)
+- element of Mercury sign
+- element of Venus sign
+- element of Mars sign
+- element of Jupiter sign
+- element of Saturn sign
+### Add an extra point for each of the following:
+
+- element of the sign of the dispositor of the Ascendant (using traditional ruling planets, not Uranus, Neptune, or Pluto)
+- element of the sign of the dispositor of the Sun (using traditional ruling planets)
+If one of the above happens to be in the 29th degree of any sign, split the point between that element and the element of the next sign, since it is so close to 0° of the next sign. So give each element in that case half a point. There should be a total of 13 points. Now, count the points for each element.
+
+An element is dominant if it gets 5 or more points, but 5 is not so bad. Having 6 or more points is overly dominant.
+
+An element is weak (or lacking) if it gets zero points, or 1 point. Also, if it has 2 or more points but those happen to be the farther planets like Neptune and Pluto, then consider that element weak.

@@ -1,5 +1,6 @@
 const Router = require('express-promise-router')
 const astrologer = require('../astrologer')
+const elements = require('../elements');
 
 const router = new Router()
 
@@ -11,9 +12,13 @@ router.get('/horoscope', async (req, res) => {
 
   const chart = astrologer.natalChart(date, latitude, longitude, houseSystem)
 
+  const calculation = elements.getElementsCount(chart);
+
   res.status(200).json({
-    data: chart
+    data: chart,
+    calculation,
   })
 })
+
 
 module.exports = router

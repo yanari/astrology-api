@@ -83,4 +83,5 @@ class Signs {
 
 module.exports = {
   Signs,
+  Elements,
 }
