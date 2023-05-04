@@ -9,9 +9,8 @@ const getAstroCount = (allAspects) => {
     const elementCount = accumulator[element] || 0;
 
     accumulator[element] = points + elementCount;
-    accumulator.total += points
     return accumulator;
-  }, {total: 0})
+  }, {})
 
   return astroPoints;
 };

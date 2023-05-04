@@ -22,26 +22,6 @@ const Elements = {
   Water: 'Water',
 }
 
-// const MappedSigns = {
-//   1: { name: SignsEnum.Aries, element: Elements.Fire },
-//   2: { name: SignsEnum.Taurus, element: Elements.Earth },
-//   3: { name: SignsEnum.Gemini, element: Elements.Air },
-//   4: { name: SignsEnum.Cancer, element: Elements.Water },
-//   5: { name: SignsEnum.Leo, element: Elements.Fire },
-//   6: { name: SignsEnum.Virgo, element: Elements.Earth },
-//   7: { name: SignsEnum.Libra, element: Elements.Air },
-//   8: { name: SignsEnum.Scorpio, element: Elements.Water },
-//   9: { name: SignsEnum.Sagittarius, element: Elements.Fire },
-//   10: { name: SignsEnum.Capricorn, element: Elements.Earth },
-//   11: { name: SignsEnum.Aquarius, element: Elements.Air },
-//   12: { name: SignsEnum.Pisces, element: Elements.Water },
-// };
-
-// const Points = {
-//   2: [PLANETS.sun, PLANETS.moon],
-//   1: [PLANETS.mercury, PLANETS.venus, PLANETS.mars, PLANETS.jupiter, PLANETS.saturn],
-// }
-
 const Rulers = {
   [SignsEnum.Aries]: PLANETS.mars,
   [SignsEnum.Taurus]: PLANETS.venus,
@@ -84,4 +64,5 @@ class Signs {
 module.exports = {
   Signs,
   Elements,
+  Rulers,
 }
