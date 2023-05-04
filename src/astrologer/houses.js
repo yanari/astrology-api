@@ -29,7 +29,7 @@ const houses = (date, position, houseSystem = 'P') => {
     houseSystem // placidus system...
   ).data
 
-  const houseCollection = housesPositions.map((cuspid) => ({ position: degreesToDms(cuspid), sign: zodiacSign(cuspid) }))
+  const houseCollection = housesPositions.map((cuspid) => ({ ...degreesToDms(cuspid), sign: zodiacSign(cuspid) }))
 
   const axes = {
     asc: houseCollection[0], dc: houseCollection[6], mc: houseCollection[9], ic: houseCollection[3]
@@ -37,7 +37,6 @@ const houses = (date, position, houseSystem = 'P') => {
 
   return {
     axes,
-    houses: houseCollection
   }
 }
 

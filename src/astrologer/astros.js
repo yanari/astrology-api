@@ -44,25 +44,6 @@ const PLANETS = {
   juno: SE_JUNO
 }
 
-const planetsByType = {
-  sun: 'luminary',
-  moon: 'luminary',
-  mercury: 'personal',
-  venus: 'personal',
-  mars: 'personal',
-  jupiter: 'social',
-  saturn: 'social',
-  uranus: 'transpersonal',
-  neptune: 'transpersonal',
-  pluto: 'transpersonal',
-  chiron: 'other',
-  lilith: 'other',
-  ceres: 'other',
-  vesta: 'other',
-  pallas: 'other',
-  juno: 'other'
-}
-
 const FLAG = SEFLG_SPEED | SEFLG_SWIEPH
 
 const getPositionOfAstro = (astro, julianDay) => sweph.calc(julianDay, PLANETS[astro], FLAG)
@@ -78,11 +59,7 @@ const position = (astrologyObject, moment) => {
   const retrograde = isRetrograde(speed)
 
   return {
-    position: {
-      longitude,
-      ...dms
-    },
-    speed,
+    ...dms,
     retrograde,
     sign: zodiacSign(longitude)
   }
@@ -96,7 +73,6 @@ const planets = (date) => {
         accumulator[name] = {
           name,
           ...planetPosition,
-          type: planetsByType[name]
         }
         return accumulator
       },
@@ -107,6 +83,5 @@ const planets = (date) => {
 module.exports = {
   PLANETS,
   position,
-  planetsByType,
   planets
 }

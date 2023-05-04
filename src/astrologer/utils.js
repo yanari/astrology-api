@@ -27,13 +27,8 @@ const utcToJulianEt = (utcDate) => {
 
 const degreesToDms = (value) => {
   const position = sweph.split_deg(value, sweph.constants.SE_SPLIT_DEG_ZODIACAL)
-  const { degree: degrees, minute: minutes, second: seconds } = position
-  return {
-    degrees,
-    minutes,
-    seconds,
-    longitude: value
-  }
+  const { degree: degrees } = position
+  return { degrees }
 }
 
 const zodiacSign = (degrees) => (Math.floor(degrees / 30) % 12) + 1
