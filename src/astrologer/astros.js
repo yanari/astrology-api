@@ -22,7 +22,7 @@ const {
   SE_CERES,
   SE_PALLAS,
   SEFLG_SWIEPH,
-  SEFLG_SPEED
+  SEFLG_SPEED,
 } = sweph.constants
 
 const PLANETS = {
@@ -66,18 +66,14 @@ const position = (astrologyObject, moment) => {
 }
 
 const planets = (date) => {
-  return Object.keys(PLANETS)
-    .reduce(
-      (accumulator, name) => {
-        const planetPosition = position(name, date)
-        accumulator[name] = {
-          name,
-          ...planetPosition,
-        }
-        return accumulator
-      },
-      {}
-    )
+  return Object.keys(PLANETS).reduce((accumulator, name) => {
+    const planetPosition = position(name, date)
+    accumulator[name] = {
+      name,
+      ...planetPosition,
+    }
+    return accumulator
+  }, {});
 }
 
 module.exports = {
