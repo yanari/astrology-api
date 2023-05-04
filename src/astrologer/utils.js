@@ -1,5 +1,6 @@
 const sweph = require('sweph')
 const path = require('path')
+const { Signs } = require('../models/Signs')
 
 sweph.set_ephe_path(path.join(__dirname, '/../../eph'))
 
@@ -31,7 +32,10 @@ const degreesToDms = (value) => {
   return { degrees }
 }
 
-const zodiacSign = (degrees) => (Math.floor(degrees / 30) % 12) + 1
+const zodiacSign = (degrees) => {
+  const number = (Math.floor(degrees / 30) % 12) + 1;
+  return Signs.get(number);
+}
 
 const normalizeDegrees = (degrees) => {
   if (degrees < -180) {
