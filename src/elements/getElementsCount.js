@@ -17,12 +17,9 @@ const getElementsCount = (chart) => {
   const dispositorPoints = getAscendantDispositor(axes, chart);
   const values = joinValues(astros, axes);
   
-  const splittedPoints = check29degrees(values);
-  // console.log(dispositorPoints);
+  // const splittedPoints = check29degrees(values);
 
   const points = reduceInto(dispositorPoints, astroPoints)
-
-  console.log(points);
   
   return points;
 };

@@ -3,7 +3,10 @@ const check29degrees = (allValues) => {
     return value.degrees === 29;
   });
 
-  console.log(has29Degrees);
+  if (has29Degrees.length > 0) {
+    console.log(has29Degrees);
+    // TODO: calculate when astro is 29 degrees
+  }
 };
 
 module.exports = {
