@@ -12,6 +12,7 @@ const joinValues = (astros, axes) => {
 
 const reduceInto = (dispositorPoints, astroPoints) => {
   const all = [...Object.entries(dispositorPoints), ...Object.entries(astroPoints),];
+
   const points = all.reduce((accumulator, [key, value], i) => {
     let pointToAdd = 0;
     const foundIndex = accumulator.findIndex((item) => key === item?.name)
@@ -31,8 +32,24 @@ const reduceInto = (dispositorPoints, astroPoints) => {
   return points.filter((item) => item !== null);
 };
 
+const getPercentage = (reducedArray) => {
+  const totalPoints = reducedArray.reduce((acc, element) => {
+    acc += element.points;
+    return acc;
+  }, 0);
+  
+  return reducedArray.map(element => {
+    const calculation = (element.points * 100) / totalPoints;
+    return {
+      percentage: parseFloat(calculation.toFixed(2)),
+      ...element,
+    };
+  });
+};
+
 module.exports = {
   joinEntries,
   joinValues,
   reduceInto,
+  getPercentage,
 }

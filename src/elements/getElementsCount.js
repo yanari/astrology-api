@@ -1,10 +1,10 @@
 const { getAscendantDispositor } = require('./getDispositorCount');
 const { getAstroCount } = require('./getAstroCount');
-const { check29degrees } = require('./check29degrees');
+// const { check29degrees } = require('./check29degrees');
 const {
   joinEntries,
-  joinValues,
   reduceInto,
+  getPercentage,
 } = require('./utils');
 
 const getElementsCount = (chart) => {
@@ -15,13 +15,15 @@ const getElementsCount = (chart) => {
   const astroPoints = getAstroCount(all);
   
   const dispositorPoints = getAscendantDispositor(axes, chart);
-  const values = joinValues(astros, axes);
+  // const values = joinValues(astros, axes);
   
   // const splittedPoints = check29degrees(values);
 
-  const points = reduceInto(dispositorPoints, astroPoints)
+  const points = reduceInto(dispositorPoints, astroPoints);
+
+  const withPercentage = getPercentage(points);
   
-  return points;
+  return withPercentage;
 };
 
 
