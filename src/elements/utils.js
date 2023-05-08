@@ -47,9 +47,15 @@ const getPercentage = (reducedArray) => {
   });
 };
 
+const getElementsNamesSet = (elements, filter) => {
+  const elementsSet = elements.filter((item) => item.percentage === filter);
+  return elementsSet.map(item => item.name);
+};
+
 module.exports = {
   joinEntries,
   joinValues,
   reduceInto,
   getPercentage,
+  getElementsNamesSet,
 }

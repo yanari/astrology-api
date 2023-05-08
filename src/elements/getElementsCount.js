@@ -5,6 +5,7 @@ const {
   joinEntries,
   reduceInto,
   getPercentage,
+  getElementsNamesSet,
 } = require('./utils');
 
 const getElementsCount = (chart) => {
@@ -26,7 +27,44 @@ const getElementsCount = (chart) => {
   return withPercentage;
 };
 
+const getContent = (calculation) => {
+  const percentages = calculation.map(i => i.percentage);
+  const [highestElement, lowestElement] = [
+    Math.max(...percentages),
+    Math.min(...percentages),
+  ];
+
+  const [highest, lowest] = [
+    getElementsNamesSet(calculation, highestElement),
+    getElementsNamesSet(calculation, lowestElement),
+  ];
+
+  console.log('highest', highest)
+  console.log('lowest', lowest);
+
+  const dominantJson = getJsonFor(calculation, highest, 'dominant');
+  const lackJson = getJsonFor(calculation, lowest, 'lack');
+
+  return {
+    dominant: dominantJson,
+    lack: lackJson,
+  };
+};
+
+const getJsonFor = (calculation, arraySet, filePrefix) => {
+  const elements = calculation.filter((element) => {
+    return arraySet.includes(element.name);
+  });
+
+  const jsonFiles = elements.map((element) => {
+    const elementName = element.name.toLowerCase();
+    return require(`../content/${filePrefix}_${elementName}.json`);
+  });
+  console.log(jsonFiles);
+  return jsonFiles;
+};
 
 module.exports = {
   getElementsCount,
+  getContent,
 };

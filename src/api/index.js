@@ -14,9 +14,13 @@ router.get('/horoscope', async (req, res) => {
 
   const calculation = elements.getElementsCount(chart);
 
+  const { dominant, lack } = elements.getContent(calculation);
+
   res.status(200).json({
     // data: chart,
     calculation,
+    dominant,
+    lack,
   })
 })
 
