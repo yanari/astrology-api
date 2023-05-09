@@ -1,5 +1,6 @@
 const { getAscendantDispositor } = require('./getDispositorCount');
 const { getAstroCount } = require('./getAstroCount');
+const { ElementColors } = require('../models/Colors');
 // const { check29degrees } = require('./check29degrees');
 const {
   joinEntries,
@@ -58,7 +59,11 @@ const getJsonFor = (calculation, arraySet, filePrefix) => {
 
   const jsonFiles = elements.map((element) => {
     const elementName = element.name.toLowerCase();
-    return require(`../content/${filePrefix}_${elementName}.json`);
+    const color = ElementColors[element.name]
+    return {
+      color,
+      ...require(`../content/${filePrefix}_${elementName}.json`)
+    };
   });
   console.log(jsonFiles);
   return jsonFiles;
