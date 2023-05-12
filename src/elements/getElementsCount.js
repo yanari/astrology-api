@@ -39,10 +39,6 @@ const getContent = (calculation) => {
     getElementsNamesSet(calculation, highestElement),
     getElementsNamesSet(calculation, lowestElement),
   ];
-
-  console.log('highest', highest)
-  console.log('lowest', lowest);
-
   const dominantJson = getJsonFor(calculation, highest, 'dominant');
   const lackJson = getJsonFor(calculation, lowest, 'lack');
 
@@ -65,7 +61,6 @@ const getJsonFor = (calculation, arraySet, filePrefix) => {
       ...require(`../content/${filePrefix}_${elementName}.json`)
     };
   });
-  console.log(jsonFiles);
   return jsonFiles;
 };
 

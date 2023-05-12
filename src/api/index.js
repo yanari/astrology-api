@@ -1,6 +1,7 @@
 const Router = require('express-promise-router')
 const astrologer = require('../astrologer')
 const elements = require('../elements');
+const { getChartImage } = require('../chart/getChartImage');
 
 const router = new Router()
 
@@ -16,11 +17,13 @@ router.get('/horoscope', async (req, res) => {
 
   const { dominant, lack } = elements.getContent(calculation);
 
+  const chartImage = await getChartImage(calculation);
+
   res.status(200).json({
-    // data: chart,
     calculation,
     dominant,
     lack,
+    chartImage,
   })
 })
 
