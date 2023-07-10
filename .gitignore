@@ -2,3 +2,5 @@ node_modules
 coverage
 .vcode
 .idea
+# Local Netlify folder
+.netlify
