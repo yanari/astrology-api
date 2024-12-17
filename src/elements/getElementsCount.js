@@ -64,7 +64,8 @@ const getJsonFor = (calculation, arraySet, filePrefix) => {
     const elementName = element.name.toLowerCase();
     const color = ElementColors[element.name]
     return {
-      color,
+      backgroundColor: 'bg-' + color,
+      textColor: 'text-' + color,
       ...require(`../content/${filePrefix}_${elementName}.json`)
     };
   });
