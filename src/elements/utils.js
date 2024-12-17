@@ -52,10 +52,31 @@ const getElementsNamesSet = (elements, filter) => {
   return elementsSet.map(item => item.name);
 };
 
+const getTitleForPresenting = (elements, type) => {
+  if (type === 'dominant') {
+    const hasMultipleDominants = elements &&  elements.length > 1;
+
+    if (hasMultipleDominants) {
+      return 'The elements that dominate your birth chart are';
+    } else {
+      return 'The element that dominate your birth chart is';
+    }
+  } else {
+    const hasMultipleLack = elements &&  elements.length > 1;
+    
+    if (hasMultipleLack) {
+      return 'On the other hand, the weakest elements on your birth chart are';
+    } else {
+      return 'On the other hand, the weakest element on your birth chart is';
+    }
+  }
+}
+
 module.exports = {
   joinEntries,
   joinValues,
   reduceInto,
   getPercentage,
   getElementsNamesSet,
+  getTitleForPresenting
 }

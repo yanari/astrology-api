@@ -7,6 +7,7 @@ const {
   reduceInto,
   getPercentage,
   getElementsNamesSet,
+  getTitleForPresenting
 } = require('./utils');
 
 const getElementsCount = (chart) => {
@@ -39,12 +40,18 @@ const getContent = (calculation) => {
     getElementsNamesSet(calculation, highestElement),
     getElementsNamesSet(calculation, lowestElement),
   ];
+
   const dominantJson = getJsonFor(calculation, highest, 'dominant');
   const lackJson = getJsonFor(calculation, lowest, 'lack');
+
+  const dominantTitle = getTitleForPresenting(highest, 'dominant');
+  const lackTitle = getTitleForPresenting(lowest, 'lack');
 
   return {
     dominant: dominantJson,
     lack: lackJson,
+    dominantTitle,
+    lackTitle,
   };
 };
 
