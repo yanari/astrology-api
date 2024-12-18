@@ -15,7 +15,13 @@ router.get('/horoscope', async (req, res) => {
 
   const calculation = elements.getElementsCount(chart);
 
-  const { dominant, lack, dominantTitle, lackTitle } = elements.getContent(calculation);
+  const {
+    dominant,
+    lack,
+    dominantTitle,
+    lackTitle,
+    ogTitle,
+  } = elements.getContent(calculation);
 
   const chartImage = await getChartImage(calculation);
 
@@ -26,6 +32,7 @@ router.get('/horoscope', async (req, res) => {
     dominantTitle,
     lackTitle,
     chartImage,
+    ogTitle,
   })
 })
 
