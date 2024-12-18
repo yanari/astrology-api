@@ -1,6 +1,9 @@
 const { getAscendantDispositor } = require('./getDispositorCount');
 const { getAstroCount } = require('./getAstroCount');
-const { ElementColors } = require('../models/Colors');
+const { 
+  TailwindColors,
+  RGBColors,
+ } = require('../models/Colors');
 // const { check29degrees } = require('./check29degrees');
 const {
   joinEntries,
@@ -62,10 +65,12 @@ const getJsonFor = (calculation, arraySet, filePrefix) => {
 
   const jsonFiles = elements.map((element) => {
     const elementName = element.name.toLowerCase();
-    const color = ElementColors[element.name]
+    const tailwindColor = TailwindColors[element.name]
+    const rgbColor = RGBColors[element.name]
     return {
-      backgroundColor: 'bg-' + color,
-      textColor: 'text-' + color,
+      backgroundColor: 'bg-' + tailwindColor,
+      textColor: 'text-' + tailwindColor,
+      color: rgbColor,
       ...require(`../content/${filePrefix}_${elementName}.json`)
     };
   });
