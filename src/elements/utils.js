@@ -1,4 +1,7 @@
-const { ElementColors } = require('../models/Colors');
+const { 
+  TailwindColors,
+  RGBColors
+} = require('../models/Colors');
 
 const joinEntries = (astros, axes) => {
   const all = [...Object.entries(astros), ...Object.entries(axes)];
@@ -25,7 +28,9 @@ const reduceInto = (dispositorPoints, astroPoints) => {
     accumulator[index] = {
       name: key,
       points: value + pointToAdd,
-      color: ElementColors[key],
+      backgroundColor: 'bg-' + TailwindColors[key],
+      textColor: 'text-' + TailwindColors[key],
+      color: RGBColors[key],
     }
     return accumulator
   }, []);
