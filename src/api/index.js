@@ -21,6 +21,7 @@ router.get('/horoscope', async (req, res) => {
     dominantTitle,
     lackTitle,
     ogTitle,
+    params,
   } = elements.getContent(calculation);
 
   const chartImage = await getChartImage(calculation);
@@ -33,6 +34,7 @@ router.get('/horoscope', async (req, res) => {
     lackTitle,
     chartImage,
     ogTitle,
+    params,
   })
 })
 

@@ -50,29 +50,37 @@ const getContent = (calculation) => {
   const dominantTitle = getTitleForPresenting(highest, 'dominant');
   const lackTitle = getTitleForPresenting(lowest, 'lack');
 
-  const ogTitle = getOgTitle(dominantTitle, highest);
+  const { ogTitle, params } = getMeta(dominantTitle, highest);
 
   return {
     dominant: dominantJson,
     lack: lackJson,
     dominantTitle,
     lackTitle,
-    ogTitle
+    ogTitle,
+    params,
   };
 };
 
-const getOgTitle = (dominantTitle, highestElements) => {
+const getMeta = (dominantTitle, highestElements) => {
   const pre = dominantTitle.replace('your', 'my');
   let elementNames = '';
+  let params = '';
+  const highestFirstLetter = highestElements.map((element) => Array.from(element)[0].toLowerCase());
 
   console.log(highestElements);
 
   if (highestElements.length > 1) {
-    elementNames = highestElements.join(' and ')
+    elementNames = highestElements.join(' and ');
+    params = highestFirstLetter.join(',');
   } else {
     elementNames = highestElements[0];
+    params = highestFirstLetter[0];
   }
-  return `${pre} ${elementNames}.`;
+  return {
+    ogTitle: `${pre} ${elementNames}.`,
+    params
+  };
 }
 
 const getJsonFor = (calculation, arraySet, filePrefix) => {
