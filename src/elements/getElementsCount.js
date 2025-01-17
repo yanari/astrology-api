@@ -72,13 +72,13 @@ const getMeta = (dominantTitle, highestElements) => {
 
   if (highestElements.length > 1) {
     elementNames = highestElements.join(' and ');
-    params = highestFirstLetter.join(',');
+    params = highestFirstLetter.join('');
   } else {
     elementNames = highestElements[0];
     params = highestFirstLetter[0];
   }
   return {
-    ogTitle: `${pre} ${elementNames}.`,
+    ogTitle: `${pre} ${elementNames}`,
     params
   };
 }

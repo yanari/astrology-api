@@ -13,7 +13,7 @@ router.get('/horoscope', async (req, res) => {
 
   const chart = astrologer.natalChart(date, latitude, longitude, houseSystem)
 
-  const calculation = elements.getElementsCount(chart);
+  const calculation = elements.getElementsCount(chart)
 
   const {
     dominant,
@@ -21,10 +21,10 @@ router.get('/horoscope', async (req, res) => {
     dominantTitle,
     lackTitle,
     ogTitle,
-    params,
-  } = elements.getContent(calculation);
+    params
+  } = elements.getContent(calculation)
 
-  const chartImage = await getChartImage(calculation);
+  const chartImage = await getChartImage(calculation)
 
   res.status(200).json({
     calculation,
@@ -34,9 +34,8 @@ router.get('/horoscope', async (req, res) => {
     lackTitle,
     chartImage,
     ogTitle,
-    params,
+    params
   })
 })
-
 
 module.exports = router
