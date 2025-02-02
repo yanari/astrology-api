@@ -1,18 +1,18 @@
 const getAstroCount = (allAspects) => {
   const astroPoints = allAspects.reduce((accumulator, [key, astro]) => {
-    const element = astro.sign.element;
+    const element = astro.sign.element
 
     if (!astro.name) {
-      astro.name = key;
+      astro.name = key
     }
-    const points = (astro.name === 'sun' || astro.name === 'moon') ? 2 : 1;
-    const elementCount = accumulator[element] || 0;
+    const points = (astro.name === 'sun' || astro.name === 'moon') ? 2 : 1
+    const elementCount = accumulator[element] || 0
 
-    accumulator[element] = points + elementCount;
-    return accumulator;
+    accumulator[element] = points + elementCount
+    return accumulator
   }, {})
 
-  return astroPoints;
-};
+  return astroPoints
+}
 
 module.exports = { getAstroCount }

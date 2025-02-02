@@ -2,7 +2,7 @@ const sweph = require('sweph')
 const { utcToJulianEt, zodiacSign, degreesToDms } = require('./utils')
 const path = require('path')
 
-const { FLAG, PLANETS } = require('../models/Planets');
+const { FLAG, PLANETS } = require('../models/Planets')
 
 sweph.set_ephe_path(path.join(__dirname, '/../../eph'))
 
@@ -30,10 +30,10 @@ const planets = (date) => {
     const planetPosition = position(name, date)
     accumulator[name] = {
       name,
-      ...planetPosition,
+      ...planetPosition
     }
     return accumulator
-  }, {});
+  }, {})
 }
 
 module.exports = {

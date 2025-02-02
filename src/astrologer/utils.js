@@ -33,12 +33,12 @@ const degreesToDms = (value) => {
 }
 
 const zodiacSign = (degrees) => {
-  const number = (Math.floor(degrees / 30) % 12) + 1;
+  const number = (Math.floor(degrees / 30) % 12) + 1
   // return number;
   return {
     number,
     ...Signs.get(number)
-  };
+  }
 }
 
 const normalizeDegrees = (degrees) => {

@@ -9,7 +9,7 @@ const {
   SE_JUPITER,
   SE_SATURN,
   SEFLG_SWIEPH,
-  SEFLG_SPEED,
+  SEFLG_SPEED
 } = sweph.constants
 
 const PLANETS = {
@@ -19,12 +19,12 @@ const PLANETS = {
   venus: SE_VENUS,
   mars: SE_MARS,
   jupiter: SE_JUPITER,
-  saturn: SE_SATURN,
+  saturn: SE_SATURN
 }
 
 const FLAG = SEFLG_SPEED | SEFLG_SWIEPH
 
 module.exports = {
   PLANETS,
-  FLAG,
+  FLAG
 }

@@ -8,14 +8,14 @@ const natalChart = (date, latitude, longitude, houseSystem = 'P') => {
       latitude: parseFloat(latitude),
       longitude: parseFloat(longitude)
     },
-    houseSystem,
+    houseSystem
   )
 
   return {
     astros: {
       ...astrosList
     },
-    ...housesList,
+    ...housesList
   }
 }
 

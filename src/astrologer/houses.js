@@ -6,7 +6,7 @@ sweph.set_ephe_path(path.join(__dirname, '/../../eph'))
 const {
   utcToJulianUt,
   degreesToDms,
-  zodiacSign,
+  zodiacSign
 } = require('./utils')
 
 const houses = (date, position, houseSystem = 'P') => {
@@ -21,7 +21,7 @@ const houses = (date, position, houseSystem = 'P') => {
         dc: undefined,
         mc: undefined,
         ic: undefined
-      },
+      }
     }
   }
 
@@ -37,18 +37,18 @@ const houses = (date, position, houseSystem = 'P') => {
       ...degreesToDms(cuspid),
       sign: zodiacSign(cuspid)
     }
-  });
+  })
 
   const axes = {
     asc: houseCollection[0],
     // dc: houseCollection[6],
-    mc: houseCollection[9],
+    mc: houseCollection[9]
     // ic: houseCollection[3],
   }
 
   return {
     axes,
-    houses: houseCollection,
+    houses: houseCollection
   }
 }
 

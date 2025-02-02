@@ -1,6 +1,6 @@
-const { getElementsCount, getContent } = require('./getElementsCount');
+const { getElementsCount, getContent } = require('./getElementsCount')
 
 module.exports = {
   getElementsCount,
-  getContent,
+  getContent
 }
