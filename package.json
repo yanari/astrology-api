@@ -14,6 +14,7 @@
     "coveralls": "ENVIRONMENT=test jest --coverage && cat ./coverage/lcov.info | coveralls",
     "lint": "./node_modules/.bin/eslint --fix src",
     "gcp-build": "npm install -g node-gyp",
+    "preinstall": "npm install -g node-gyp",
     "postinstall": "npm rebuild sweph --update-binary"
   },
   "jest": {
