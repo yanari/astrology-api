@@ -4,6 +4,7 @@ const {
   TailwindColors,
   RGBColors
 } = require('../models/Colors')
+const { Elements } = require('../models/Signs')
 // const { check29degrees } = require('./check29degrees');
 const {
   joinEntries,
@@ -25,7 +26,10 @@ const getElementsCount = (chart) => {
 
   // const splittedPoints = check29degrees(values);
 
-  const points = reduceInto(dispositorPoints, astroPoints)
+  // start every element at 0 so an element with no placements still shows up as the lack
+  const emptyPoints = Object.fromEntries(Object.values(Elements).map((element) => [element, 0]))
+
+  const points = reduceInto(dispositorPoints, { ...emptyPoints, ...astroPoints })
 
   const withPercentage = getPercentage(points)
 
@@ -67,8 +71,6 @@ const getMeta = (dominantTitle, highestElements) => {
   let elementNames = ''
   let params = ''
   const highestFirstLetter = highestElements.map((element) => Array.from(element)[0].toLowerCase())
-
-  console.log(highestElements)
 
   if (highestElements.length > 1) {
     elementNames = highestElements.join(' and ')

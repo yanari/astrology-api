@@ -12,6 +12,10 @@ router.get('/horoscope', async (req, res) => {
   const date = new Date(req.query.time)
   const { latitude, longitude, houseSystem } = req.query
 
+  if (isNaN(date.getTime()) || isNaN(parseFloat(latitude)) || isNaN(parseFloat(longitude))) {
+    return res.status(400).json({ message: 'time, latitude and longitude are required and must be valid' })
+  }
+
   const chart = astrologer.natalChart(date, latitude, longitude, houseSystem)
 
   const calculation = elements.getElementsCount(chart)

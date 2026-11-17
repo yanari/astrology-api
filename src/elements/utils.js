@@ -62,7 +62,7 @@ const getTitleForPresenting = (elements, type) => {
     if (hasMultipleDominants) {
       return 'The elements that dominate your birth chart are'
     } else {
-      return 'The element that dominate your birth chart is'
+      return 'The element that dominates your birth chart is'
     }
   } else {
     const hasMultipleLack = elements && elements.length > 1

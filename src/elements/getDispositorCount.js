@@ -5,10 +5,13 @@ const getAscendantDispositor = (axis, birthChart) => {
   const ascPlanet = axis.asc.sign.name
   const sunPlanet = birthChart.astros.sun.sign.name
 
-  return {
-    [calculateDispositor(ascPlanet, birthChart.astros)]: 1,
-    [calculateDispositor(sunPlanet, birthChart.astros)]: 1
+  // both dispositors can fall in the same element, so add instead of overwriting
+  const points = {}
+  for (const sign of [ascPlanet, sunPlanet]) {
+    const element = calculateDispositor(sign, birthChart.astros)
+    points[element] = (points[element] || 0) + 1
   }
+  return points
 }
 
 const calculateDispositor = (planetToCalculate, astros) => {
