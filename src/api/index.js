@@ -27,6 +27,7 @@ router.get('/horoscope', async (req, res) => {
   const zodiacSigns = Signs.getAllZodiacSymbolsByElement()
 
   res.status(200).json({
+    p: elements.encodePoints(calculation),
     calculation,
     dominant,
     lack,
@@ -36,6 +37,31 @@ router.get('/horoscope', async (req, res) => {
     ogTitle,
     params,
     zodiacSigns
+  })
+})
+
+// rebuilds a shared result from its points code (e.g. f4e2a3w4) without any birth data
+router.get('/content', async (req, res) => {
+  const points = elements.decodePoints(req.query.p)
+
+  if (!points) {
+    return res.status(400).json({ message: 'p must look like f4e2a3w4' })
+  }
+
+  const calculation = elements.getCalculationFromPoints(points)
+
+  const { dominant, lack, dominantTitle, lackTitle, ogTitle, params } = elements.getContent(calculation)
+
+  res.status(200).json({
+    p: elements.encodePoints(calculation),
+    calculation,
+    dominant,
+    lack,
+    dominantTitle,
+    lackTitle,
+    ogTitle,
+    params,
+    zodiacSigns: Signs.getAllZodiacSymbolsByElement()
   })
 })
 

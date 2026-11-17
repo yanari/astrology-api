@@ -1,6 +1,10 @@
-const { getElementsCount, getContent } = require('./getElementsCount')
+const { getElementsCount, getCalculationFromPoints, getContent } = require('./getElementsCount')
+const { encodePoints, decodePoints } = require('./points')
 
 module.exports = {
   getElementsCount,
-  getContent
+  getCalculationFromPoints,
+  getContent,
+  encodePoints,
+  decodePoints
 }

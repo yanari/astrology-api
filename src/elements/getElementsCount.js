@@ -4,7 +4,7 @@ const {
   TailwindColors,
   RGBColors
 } = require('../models/Colors')
-const { Elements } = require('../models/Signs')
+const { ORDER } = require('./points')
 // const { check29degrees } = require('./check29degrees');
 const {
   joinEntries,
@@ -26,14 +26,18 @@ const getElementsCount = (chart) => {
 
   // const splittedPoints = check29degrees(values);
 
-  // start every element at 0 so an element with no placements still shows up as the lack
-  const emptyPoints = Object.fromEntries(Object.values(Elements).map((element) => [element, 0]))
+  // every element is present (even with 0 points, so it can show up as the lack), in a fixed order
+  const totals = Object.fromEntries(ORDER.map(([element]) => [
+    element,
+    (astroPoints[element] || 0) + (dispositorPoints[element] || 0)
+  ]))
 
-  const points = reduceInto(dispositorPoints, { ...emptyPoints, ...astroPoints })
+  return getCalculationFromPoints(totals)
+}
 
-  const withPercentage = getPercentage(points)
-
-  return withPercentage
+// { Fire: 4, Earth: 2, ... } -> the same calculation list returned by getElementsCount
+const getCalculationFromPoints = (totals) => {
+  return getPercentage(reduceInto({}, totals))
 }
 
 const getContent = (calculation) => {
@@ -106,5 +110,6 @@ const getJsonFor = (calculation, arraySet, filePrefix) => {
 
 module.exports = {
   getElementsCount,
+  getCalculationFromPoints,
   getContent
 }
